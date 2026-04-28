@@ -161,7 +161,7 @@ Para reproduzir as análises, siga a ordem dos scripts:
     * Exibe o mapa térmico `magma` com limite de visualização em 15kHz para análise de distorção.
 
 <div align="center">
-  <img src="logs/espectrograma_[Hiroyuki%20SAWANO×%20Mecha%20BREAK]%20-%20UPGRADE(D)%20MV.png" alt="Espectrograma de Magma" width="800">
+  <img src="logs/analise_espectral.png" alt="Espectrograma de Magma" width="800">
   <p><i>Visualização Espectral: Distribuição de energia e densidade harmônica</i></p>
 </div>
 

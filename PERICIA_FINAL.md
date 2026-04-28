@@ -50,7 +50,7 @@ Este documento contém a compilação de todas as análises técnicas realizadas
 
 ## 🎨 5. Visualização Espectral (Mapa Térmico)
 
-![Espectrograma](logs/espectrograma_[Hiroyuki%20SAWANO×%20Mecha%20BREAK]%20-%20UPGRADE(D)%20MV.png)
+![Espectrograma](logs/analise_espectral.png)
 
 *Análise STFT (Short-Time Fourier Transform) exibindo a distribuição de energia até 15kHz. As áreas em tons de magma claro indicam maior concentração de energia nas faixas de médios-altos.*
 

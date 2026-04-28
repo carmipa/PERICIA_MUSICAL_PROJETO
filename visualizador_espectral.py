@@ -40,8 +40,8 @@ def gerar_espectrograma():
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
     
-    nome_base = os.path.splitext(os.path.basename(caminho))[0]
-    img_path = os.path.join(log_dir, f"espectrograma_{nome_base}.png")
+    # Usamos um nome sanitizado para evitar problemas de exibição no Markdown/GitHub
+    img_path = os.path.join(log_dir, "analise_espectral.png")
     
     print(f"[*] Gerando gráfico espectral... Aguarde.")
     plt.tight_layout()
