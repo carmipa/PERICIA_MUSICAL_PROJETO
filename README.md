@@ -1,9 +1,13 @@
-# 🔍 Analisador de Áudio Forense (Hiroyuki SAWANO × Mecha BREAK)
+<h1 align="center">🔍 Analisador de Áudio Forense (Hiroyuki SAWANO × Mecha BREAK)</h1>
+
+<div align="center">
 
 ![Header Image](https://img.shields.io/badge/PROJECT-AUDIO_FORENSICS-blueviolet?style=for-the-badge&logo=sonarcloud)
 ![Status](https://img.shields.io/badge/STATUS-PERÍCIA_CONCLUÍDA-brightgreen?style=for-the-badge)
 ![Python](https://img.shields.io/badge/PYTHON-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Analyst](https://img.shields.io/badge/ANALYST-PAULO_ANDRÉ_CARMINATI-blue?style=for-the-badge)
+
+</div>
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=T_kEs91V3b4">
