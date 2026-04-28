@@ -1,4 +1,4 @@
-# 🔍 Analisador de Áudio Forense (Corolla & Sound Blaster Edition)
+# 🔍 Analisador de Áudio Forense (Hiroyuki SAWANO × Mecha BREAK)
 
 ![Header Image](https://img.shields.io/badge/PROJECT-AUDIO_FORENSICS-blueviolet?style=for-the-badge&logo=sonarcloud)
 ![Status](https://img.shields.io/badge/STATUS-PERÍCIA_CONCLUÍDA-brightgreen?style=for-the-badge)
@@ -15,6 +15,7 @@
 ---
 
 ## 📝 Visão Geral
+
 Este projeto nasceu de uma investigação técnica para resolver um fenômeno acústico específico: a percepção de **baixo volume e falta de corpo** ao reproduzir a faixa [[Hiroyuki SAWANO× Mecha BREAK] - UPGRADE(D) MV](https://www.youtube.com/watch?v=T_kEs91V3b4) no sistema de som OEM de um **Toyota Corolla 2024 XEI**.
 
 Através de engenharia reversa de áudio e análise de sinais, o objetivo foi extrair o "DNA" da mixagem e configurar presets compensatórios de hardware.
@@ -55,10 +56,10 @@ graph TD
 
 Para entender o "DNA" do áudio, o sistema monitora métricas específicas via `librosa.feature`:
 
-*   **Zero Crossing Rate (ZCR):** Mede a taxa de troca de sinal. Valores > 0.05 indicam alta rugosidade harmônica (típico de guitarras distorcidas e sintetizadores industriais).
-*   **Spectral Centroid:** Indica o "centro de massa" do espectro. Se > 2500Hz, a música é classificada como **"Brilhante/Aguda"**.
-*   **HSS (Harmonic-Percussive Source Separation):** Separa o sinal em camadas melódicas e rítmicas para calcular a **Razão Melodia/Bateria**.
-*   **Chroma CQT:** Analisa a intensidade das 12 notas da escala cromática para determinar a **Tonalidade Dominante**.
+* **Zero Crossing Rate (ZCR):** Mede a taxa de troca de sinal. Valores > 0.05 indicam alta rugosidade harmônica (típico de guitarras distorcidas e sintetizadores industriais).
+* **Spectral Centroid:** Indica o "centro de massa" do espectro. Se > 2500Hz, a música é classificada como **"Brilhante/Aguda"**.
+* **HSS (Harmonic-Percussive Source Separation):** Separa o sinal em camadas melódicas e rítmicas para calcular a **Razão Melodia/Bateria**.
+* **Chroma CQT:** Analisa a intensidade das 12 notas da escala cromática para determinar a **Tonalidade Dominante**.
 
 ---
 
@@ -67,15 +68,17 @@ Para entender o "DNA" do áudio, o sistema monitora métricas específicas via `
 Os algoritmos revelaram as causas físicas da discrepância sonora:
 
 ### ⚡ Dinâmica e Energia
-*   **Volume Médio (RMS):** `-19.26 dB` 📉 (Exige alto ganho do amplificador).
-*   **Pico de Sinal:** `-1.88 dB` 📈 (Próximo ao clipping digital).
-*   **Dynamic Range (DR):** `17.38 dB` 🔊 (Altíssima dinâmica; o som "some" em volumes baixos).
-*   **Normalização YouTube:** `-11.7 dB` ⚠️ (Atenuação agressiva para evitar clipping).
+
+* **Volume Médio (RMS):** `-19.26 dB` 📉 (Exige alto ganho do amplificador).
+* **Pico de Sinal:** `-1.88 dB` 📈 (Próximo ao clipping digital).
+* **Dynamic Range (DR):** `17.38 dB` 🔊 (Altíssima dinâmica; o som "some" em volumes baixos).
+* **Normalização YouTube:** `-11.7 dB` ⚠️ (Atenuação agressiva para evitar clipping).
 
 ### 🎼 Assinatura Timbrística (Sawano's DNA)
-*   **Frequência Central:** `3200.38 Hz` (Foco em médios-altos).
-*   **Taxa de Rugosidade (ZCR):** `0.0627` (Alta distorção harmônica intencional).
-*   **Razão Melodia/Bateria:** `2.21` (Harmonia densa que mascara a percussão em volumes baixos).
+
+* **Frequência Central:** `3200.38 Hz` (Foco em médios-altos).
+* **Taxa de Rugosidade (ZCR):** `0.0627` (Alta distorção harmônica intencional).
+* **Razão Melodia/Bateria:** `2.21` (Harmonia densa que mascara a percussão em volumes baixos).
 
 ---
 
@@ -93,26 +96,32 @@ O script `analise_profunda.py` utiliza algoritmos de decisão para identificar f
 ---
 
 ## 🕵️ Perícia Forense de Estúdio
+
 Analisando o fluxo de trabalho de **Hiroyuki Sawano**, confirmamos:
-*   **Workstation:** Uso massivo de *layering* de oitavas no **Cubase**.
-*   **Hardware:** Mixagem via console **SSL 6000G** (saturação analógica de "ferro").
-*   **Efeitos:** Uso de **Lexicon** para profundidade espacial "industrial".
+
+* **Workstation:** Uso massivo de *layering* de oitavas no **Cubase**.
+* **Hardware:** Mixagem via console **SSL 6000G** (saturação analógica de "ferro").
+* **Efeitos:** Uso de **Lexicon** para profundidade espacial "industrial".
 
 ---
 
 ## 🔊 Implementação de Soluções
 
 ### 🚗 Toyota Corolla 2024 (OEM System)
+
 **Diagnóstico:** O sistema OEM não move massa de sub-graves suficiente em volumes baixos.
-*   **Ação:** Aplicação do **Preset Rock** (atuando como compressor natural).
-*   **Resultado:** Elevação de agudos e graves, compensando o "vácuo" central detectado.
+
+* **Ação:** Aplicação do **Preset Rock** (atuando como compressor natural).
+* **Resultado:** Elevação de agudos e graves, compensando o "vácuo" central detectado.
 
 ### 💻 PC System (Sound BlasterX G5/G3)
+
 Criação do preset customizado **"Sawano Mecha"**:
-*   **EQ 10 Bandas:** Curva em "V" com `+6 dB` em 2k-4k Hz.
-*   **Crystalizer (65%):** Reconstrução de harmônicos perdidos na compressão.
-*   **Surround (70%):** Expansão estéreo 7.1 Virtual.
-*   **Bass (35% @ 80Hz):** Foco na vibração subsônica sem embolar os médios.
+
+* **EQ 10 Bandas:** Curva em "V" com `+6 dB` em 2k-4k Hz.
+* **Crystalizer (65%):** Reconstrução de harmônicos perdidos na compressão.
+* **Surround (70%):** Expansão estéreo 7.1 Virtual.
+* **Bass (35% @ 80Hz):** Foco na vibração subsônica sem embolar os médios.
 
 ---
 
@@ -120,22 +129,23 @@ Criação do preset customizado **"Sawano Mecha"**:
 
 Para reproduzir as análises, siga a ordem dos scripts:
 
-1.  **`downloa_anilise_primaria.py`**:
-    *   Faz o download do áudio via `yt-dlp`.
-    *   Filtra o melhor formato de áudio disponível (geralmente Opus 48kHz).
-2.  **`analise_metadados_brutos.py`**:
-    *   Extrai metadados de baixo nível (Bitrate, Sample Rate, Encoder).
-    *   Calcula o BPM real e a tonalidade harmônica.
-3.  **`analise_profunda.py`**:
-    *   Divide o espectro em **3 Zonas Críticas**: Sub-grave (20-100Hz), Médios (400-3kHz) e Agudos (8-20kHz).
-    *   Executa a lógica de diagnóstico automatizada.
-4.  **`visualizador_espectral.py`**:
-    *   Gera a **STFT (Short-Time Fourier Transform)**.
-    *   Exibe o mapa térmico `magma` com limite de visualização em 15kHz para análise de distorção.
+1. **`downloa_anilise_primaria.py`**:
+    * Faz o download do áudio via `yt-dlp`.
+    * Filtra o melhor formato de áudio disponível (geralmente Opus 48kHz).
+2. **`analise_metadados_brutos.py`**:
+    * Extrai metadados de baixo nível (Bitrate, Sample Rate, Encoder).
+    * Calcula o BPM real e a tonalidade harmônica.
+3. **`analise_profunda.py`**:
+    * Divide o espectro em **3 Zonas Críticas**: Sub-grave (20-100Hz), Médios (400-3kHz) e Agudos (8-20kHz).
+    * Executa a lógica de diagnóstico automatizada.
+4. **`visualizador_espectral.py`**:
+    * Gera a **STFT (Short-Time Fourier Transform)**.
+    * Exibe o mapa térmico `magma` com limite de visualização em 15kHz para análise de distorção.
 
 ---
 
 ## 🏁 Conclusão
+
 A investigação provou que o "som fraco" era uma **desconexão técnica** entre uma mixagem de alta dinâmica (estilo Cinema) e ambientes de reprodução normalizados. O processamento compensatório (EQ + DSP) restaurou a autoridade técnica pretendida pelo compositor.
 
 ---
