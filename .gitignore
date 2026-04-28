@@ -216,3 +216,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Pericia Musical Custom Ignores
+downloads/
+logs/
+*.mp3
+*.wav
+*.webm
+*.opus
+*.png

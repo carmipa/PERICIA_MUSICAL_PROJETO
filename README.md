@@ -125,6 +125,24 @@ Criação do preset customizado **"Sawano Mecha"**:
 
 ---
 
+## 🛠️ Pré-requisitos e Instalação
+
+Antes de iniciar a perícia, certifique-se de ter o **Python 3.12+** e o **FFmpeg** instalados no seu sistema.
+
+### ⚙️ Instalação Automática (Windows)
+Basta executar o arquivo `setup.bat` incluído na pasta raiz. Ele instalará todas as dependências necessárias automaticamente:
+```powershell
+./setup.bat
+```
+
+### 🐍 Instalação Manual
+Caso prefira, utilize o `pip`:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
 ## 🚀 Fluxo de Trabalho (Pipeline)
 
 Para reproduzir as análises, siga a ordem dos scripts:
@@ -142,11 +160,33 @@ Para reproduzir as análises, siga a ordem dos scripts:
     * Gera a **STFT (Short-Time Fourier Transform)**.
     * Exibe o mapa térmico `magma` com limite de visualização em 15kHz para análise de distorção.
 
+<div align="center">
+  <img src="logs/espectrograma_[Hiroyuki%20SAWANO×%20Mecha%20BREAK]%20-%20UPGRADE(D)%20MV.png" alt="Espectrograma de Magma" width="800">
+  <p><i>Visualização Espectral: Distribuição de energia e densidade harmônica</i></p>
+</div>
+
 ---
 
 ## 🏁 Conclusão
 
 A investigação provou que o "som fraco" era uma **desconexão técnica** entre uma mixagem de alta dinâmica (estilo Cinema) e ambientes de reprodução normalizados. O processamento compensatório (EQ + DSP) restaurou a autoridade técnica pretendida pelo compositor.
+
+---
+
+## 📑 Relatório de Perícia Final
+
+Os resultados detalhados de todas as análises (Metadados, Engenharia Acústica e Dinâmica) foram consolidados em um documento técnico formatado para auditoria:
+
+👉 **[Acesse o Relatório Consolidado de Perícia (Markdown)](PERICIA_FINAL.md)**
+
+---
+
+## 📁 Sistema de Logs Automáticos
+
+O ecossistema agora conta com um sistema de arquivamento automático. Ao executar qualquer script, os resultados são salvos na pasta `/logs`:
+
+*   **Relatórios TXT:** Registram todos os dados de metadados, RMS, Peak e diagnósticos.
+*   **Imagens PNG:** O espectrograma de magma é salvo automaticamente para auditoria visual posterior.
 
 ---
 

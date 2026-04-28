@@ -58,10 +58,30 @@ if __name__ == "__main__":
     resultado = baixar_e_extrair_dados(url_target)
 
     if isinstance(resultado, dict):
-        print("\n" + "=" * 30)
-        print("ANÁLISE DE GRAVAÇÃO CONCLUÍDA")
-        print("=" * 30)
+        report = []
+        report.append("\n" + "=" * 30)
+        report.append("ANÁLISE DE GRAVAÇÃO CONCLUÍDA")
+        report.append("=" * 30)
         for chave, valor in resultado.items():
-            print(f"{chave.ljust(15)}: {valor}")
+            report.append(f"{chave.ljust(15)}: {valor}")
+        
+        final_output = "\n".join(report)
+        print(final_output)
+
+        # SALVAR LOG (Markdown)
+        log_dir = "logs"
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        
+        nome_base = resultado.get("Título", "audio_downloaded").replace(" ", "_")
+        log_path = os.path.join(log_dir, f"pericia_download_{nome_base}.md")
+        
+        # Formatação Markdown
+        md_report = [f"# 📥 Download e Extração - {nome_base}", ""]
+        md_report.extend([line.replace("=", "").strip() for line in report if line.strip()])
+
+        with open(log_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(md_report))
+        print(f"\n[OK] Log Markdown de download salvo em: {log_path}")
     else:
         print(f"\n[!] Falha no Processamento:\n{resultado}")

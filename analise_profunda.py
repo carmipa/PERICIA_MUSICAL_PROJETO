@@ -7,8 +7,9 @@ import glob
 
 
 def pericia_audiometrica_avancada():
-    base_path = r"G:\PROJETOS-OPEN\analisador_musica"
-    arquivos = glob.glob(os.path.join(base_path, "downloads", "*.mp3"))
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    downloads_path = os.path.join(script_dir, "downloads")
+    arquivos = glob.glob(os.path.join(downloads_path, "*.mp3"))
     if not arquivos:
         print("[-] Arquivo não encontrado.")
         return
@@ -41,41 +42,62 @@ def pericia_audiometrica_avancada():
     energia_perc = np.mean(librosa.feature.rms(y=y_perc))
     energia_harm = np.mean(librosa.feature.rms(y=y_harm))
 
-    print("\n" + "█" * 60)
-    print(f"      RELATÓRIO DE ENGENHARIA ACÚSTICA - COROLLA EDITION")
-    print("█" * 60)
+    report = []
+    report.append("\n" + "█" * 60)
+    report.append(f"      RELATÓRIO DE ENGENHARIA ACÚSTICA - COROLLA EDITION")
+    report.append("█" * 60)
 
-    print(f"\n[SISTEMA DE ARQUIVOS]")
-    print(f"    Bitrate Real      : {bitrate:.0f} kbps (CBR/VBR)")
-    print(f"    Sample Rate       : {frequencia_amostragem} Hz")
-    print(f"    Duração           : {duracao:.2f}s")
-    print(f"    Encoder           : {encoder_info}")
+    report.append(f"\n[SISTEMA DE ARQUIVOS]")
+    report.append(f"    Bitrate Real      : {bitrate:.0f} kbps (CBR/VBR)")
+    report.append(f"    Sample Rate       : {frequencia_amostragem} Hz")
+    report.append(f"    Duração           : {duracao:.2f}s")
+    report.append(f"    Encoder           : {encoder_info}")
 
-    print(f"\n[PSICOACÚSTICA E DINÂMICA]")
-    print(f"    Energia de Impacto (Percussão): {energia_perc:.4f}")
-    print(f"    Energia Melódica  (Harmonia) : {energia_harm:.4f}")
-    print(f"    Razão Melodia/Bateria        : {energia_harm / energia_perc:.2f}")
+    report.append(f"\n[PSICOACÚSTICA E DINÂMICA]")
+    report.append(f"    Energia de Impacto (Percussão): {energia_perc:.4f}")
+    report.append(f"    Energia Melódica  (Harmonia) : {energia_harm:.4f}")
+    report.append(f"    Razão Melodia/Bateria        : {energia_harm / energia_perc:.2f}")
 
-    print(f"\n[ANÁLISE DE ESPECTRO (dB Relativo)]")
-    print(f"    Sub-Grave (Corpo) : {sub_grave:.2f} dB")
-    print(f"    Médios (Presença) : {medios:.2f} dB")
-    print(f"    Agudos (Brilho)   : {agudos:.2f} dB")
+    report.append(f"\n[ANÁLISE DE ESPECTRO (dB Relativo)]")
+    report.append(f"    Sub-Grave (Corpo) : {sub_grave:.2f} dB")
+    report.append(f"    Médios (Presença) : {medios:.2f} dB")
+    report.append(f"    Agudos (Brilho)   : {agudos:.2f} dB")
 
-    print(f"\n[VEREDITO PERICIAL]")
+    report.append(f"\n[VEREDITO PERICIAL]")
     # Lógica de diagnóstico baseada nos dados extraídos
     if sub_grave < -50:
-        print("    (!) CONCLUSÃO: A gravação tem um 'Roll-off' agressivo nos graves.")
-        print("    O Corolla precisa de volume 20+ porque não há sinal real abaixo de 60Hz.")
+        report.append("    (!) CONCLUSÃO: A gravação tem um 'Roll-off' agressivo nos graves.")
+        report.append("    O Corolla precisa de volume 20+ porque não há sinal real abaixo de 60Hz.")
 
     if (agudos - medios) > 10:
-        print("    (!) CONCLUSÃO: Mixagem 'V-Shape' detectada.")
-        print("    O som parece 'oco' no volume 12 porque os médios estão enterrados.")
+        report.append("    (!) CONCLUSÃO: Mixagem 'V-Shape' detectada.")
+        report.append("    O som parece 'oco' no volume 12 porque os médios estão enterrados.")
 
     if (energia_harm / energia_perc) > 2.0:
-        print("    (!) CONCLUSÃO: Transientes fracos (Baixa percussividade).")
-        print("    A música carece de 'punch'. O volume 12 parecerá sem vida.")
+        report.append("    (!) CONCLUSÃO: Transientes fracos (Baixa percussividade).")
+        report.append("    A música carece de 'punch'. O volume 12 parecerá sem vida.")
 
-    print("█" * 60)
+    report.append("█" * 60)
+
+    # Exibir no console
+    final_output = "\n".join(report)
+    print(final_output)
+
+    # 3. SALVAR LOG (Markdown)
+    log_dir = "logs"
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+    
+    nome_base = os.path.splitext(os.path.basename(caminho))[0]
+    log_path = os.path.join(log_dir, f"pericia_profunda_{nome_base}.md")
+    
+    # Formatação Markdown para o arquivo
+    md_report = [f"# 🔊 Engenharia Acústica - {nome_base}", ""]
+    md_report.extend([line.replace("█", "").strip() for line in report if line.strip()])
+    
+    with open(log_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(md_report))
+    print(f"\n[OK] Log Markdown salvo em: {log_path}")
 
 
 if __name__ == "__main__":
