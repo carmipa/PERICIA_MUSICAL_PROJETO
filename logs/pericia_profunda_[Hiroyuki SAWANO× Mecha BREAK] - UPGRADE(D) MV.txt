@@ -1,0 +1,25 @@
+
+████████████████████████████████████████████████████████████
+      RELATÓRIO DE ENGENHARIA ACÚSTICA - COROLLA EDITION
+████████████████████████████████████████████████████████████
+
+[SISTEMA DE ARQUIVOS]
+    Bitrate Real      : 320 kbps (CBR/VBR)
+    Sample Rate       : 48000 Hz
+    Duração           : 203.64s
+    Encoder           : Desconhecido
+
+[PSICOACÚSTICA E DINÂMICA]
+    Energia de Impacto (Percussão): 0.0254
+    Energia Melódica  (Harmonia) : 0.0561
+    Razão Melodia/Bateria        : 2.21
+
+[ANÁLISE DE ESPECTRO (dB Relativo)]
+    Sub-Grave (Corpo) : -32.88 dB
+    Médios (Presença) : -51.37 dB
+    Agudos (Brilho)   : -69.73 dB
+
+[VEREDITO PERICIAL]
+    (!) CONCLUSÃO: Transientes fracos (Baixa percussividade).
+    A música carece de 'punch'. O volume 12 parecerá sem vida.
+████████████████████████████████████████████████████████████

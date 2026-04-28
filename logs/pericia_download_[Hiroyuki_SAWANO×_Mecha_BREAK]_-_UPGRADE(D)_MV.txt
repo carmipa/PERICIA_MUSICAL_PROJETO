@@ -1,0 +1,12 @@
+
+==============================
+ANÁLISE DE GRAVAÇÃO CONCLUÍDA
+==============================
+Título         : [Hiroyuki SAWANO× Mecha BREAK] - UPGRADE(D) MV
+Canal          : Mecha BREAK
+Data           : 20250608
+Duração        : 204 segundos
+Codec Original : opus
+Sample Rate    : 48000 Hz
+Bitrate (kbps) : 123.251
+Caminho        : downloads/[Hiroyuki SAWANO× Mecha BREAK] - UPGRADE(D) MV.mp3

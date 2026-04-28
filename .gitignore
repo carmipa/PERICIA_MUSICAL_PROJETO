@@ -219,9 +219,7 @@ __marimo__/
 
 # Pericia Musical Custom Ignores
 downloads/
-logs/
 *.mp3
 *.wav
 *.webm
 *.opus
-*.png

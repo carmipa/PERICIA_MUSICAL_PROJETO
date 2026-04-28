@@ -1,0 +1,25 @@
+
+███████████████████████████████████████████████████████
+       RELATÓRIO DE PERÍCIA FORENSE COMPUTACIONAL
+███████████████████████████████████████████████████████
+
+[ESTRUTURA RÍTMICA]
+  BPM (Pulso Mecânico)  : 106.13
+  Total de Beats        : 357
+
+[PROPRIEDADES HARMÔNICAS]
+  Tonalidade Dominante  : D#
+  Frequência Central    : 3200.38 Hz
+  Energia Harmônica     : 0.0561
+
+[TEXTURA E TIMBRE (METAL & TECH)]
+  Taxa de Rugosidade    : 0.0627 (ZCR)
+  Energia Percussiva    : 0.0254
+  Densidade Espectral   : Brilhante (Agudos)
+
+███████████████████████████████████████████████████████
+
+[VEREDITO PARA SISTEMA AUTOMOTIVO]:
+ > Música com alta 'sujeira' harmônica intencional.
+ > No volume 12, isso vira ruído de fundo.
+ > No volume 20, vira a 'força' do metal que você percebeu.
