@@ -48,7 +48,20 @@ Este documento contém a compilação de todas as análises técnicas realizadas
 
 ---
 
-## 🎨 5. Visualização Espectral (Mapa Térmico)
+## 🛠️ 5. Implementação de Soluções (Presets de Hardware)
+
+### 🚗 Toyota Corolla 2024
+*   **Ação:** Uso do **Preset Rock** no rádio original.
+*   **Objetivo:** Compensar o vácuo de médios e graves em volumes baixos.
+
+### 💻 Estação PC (Creative Edition)
+*   **Hardware:** Placa de Som **Sound BlasterX G5** + Caixas **Creative SBS E2900 2.1**.
+*   **Software:** **BlasterX Acoustic Engine Pro**.
+*   **Configuração:** Preset "Sawano Mecha" (Surround 70% / Crystalizer 65% / Bass 35%).
+
+---
+
+## 🎨 6. Visualização Espectral (Mapa Térmico)
 
 ![Espectrograma](logs/analise_espectral.png)
 

@@ -114,9 +114,9 @@ Analisando o fluxo de trabalho de **Hiroyuki Sawano**, confirmamos:
 * **Ação:** Aplicação do **Preset Rock** (atuando como compressor natural).
 * **Resultado:** Elevação de agudos e graves, compensando o "vácuo" central detectado.
 
-### 💻 PC System (Sound BlasterX G5/G3)
+### 💻 PC System (Creative G5 + SBS E2900 2.1)
 
-Criação do preset customizado **"Sawano Mecha"**:
+Configuração do ecossistema Creative (Placa de som G5 + Caixas E2900 2.1) utilizando o software **BlasterX Acoustic Engine Pro** com o preset customizado **"Sawano Mecha"**:
 
 * **EQ 10 Bandas:** Curva em "V" com `+6 dB` em 2k-4k Hz.
 * **Crystalizer (65%):** Reconstrução de harmônicos perdidos na compressão.
